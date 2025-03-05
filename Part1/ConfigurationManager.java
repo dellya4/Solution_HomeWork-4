@@ -7,6 +7,8 @@ public final class ConfigurationManager {
     private static ConfigurationManager instance;
     final Map<String, String> setting;
 
+    // Constructor for configuration manager
+    // Create HashMap and put element
     private ConfigurationManager(String maxPlayer, String defaultLanguage, String gameDifficulty) {
         setting = new HashMap<>();
         setting.put("maxPlayer", maxPlayer);
@@ -14,6 +16,7 @@ public final class ConfigurationManager {
         setting.put("gameDifficulty", gameDifficulty);
     }
 
+    // Check your manager, and create it
     public static ConfigurationManager getInstance(String maxPlayer, String defaultLanguage, String gameDifficulty) {
         if (instance == null) {
             instance = new ConfigurationManager(maxPlayer, defaultLanguage, gameDifficulty);
@@ -21,10 +24,12 @@ public final class ConfigurationManager {
         return instance;
     }
 
+    // Find setting
     public String getSetting(String key) {
         return setting.get(key);
     }
 
+    // Print all setting
     public void printSetting() {
         System.out.println("Setting: ");
         for (String s : setting.keySet()) {
